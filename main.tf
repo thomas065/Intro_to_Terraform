@@ -1,14 +1,9 @@
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer
 
 
-# resource "local_file" "sample_res" {
-#   filename = var.filename
-#   content = var.content4[2]
-# }
-
 resource "local_file" "sample_res" {
   filename = var.filename
-  content = var.content5[0]
+  content = var.content6.age
 }
 
 output "result_filename" {
@@ -19,6 +14,20 @@ output "result_content" {
   value = local_file.sample_res.content
 }
 
+# resource "local_file" "sample_res" {
+#   filename = var.filename
+#   content = var.content4[2]
+# }
+
+# resource "local_file" "sample_res" {
+#   filename = var.filename
+#   content = var.content5[0]
+# }
+
+# resource "local_file" "sample_res" {
+#   filename = var.filename
+#   content = var.content6.name
+# }
 
 # resource "local_file" "sample_res" {
 #   filename = var.filename

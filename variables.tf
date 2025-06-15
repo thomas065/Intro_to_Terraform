@@ -27,3 +27,8 @@ variable "content5" {
   type = tuple([ string, bool, number ])
   default = ["red", false, 49]
 }
+
+variable "content6" {
+  type = map
+  default = {name = "Thomas", age = 49}
+}
