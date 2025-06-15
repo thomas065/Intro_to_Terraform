@@ -1,12 +1,10 @@
-output "name_len20" {
-  value = random_string.rand_name1.result
-}
+# output "name_len20" {
+#   value = random_string.rand_name1.result
+# }
 
-output "name_len10" {
-  value = random_string.rand_name2.result
-}
-
-
+# output "name_len10" {
+#   value = random_string.rand_name2.result
+# }
 
 # output "result_filename" {
 #   value = local_file.sample_res.filename

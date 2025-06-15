@@ -1,24 +1,38 @@
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer
 
 
-resource "local_file" "random_res1" {
-  filename   = "explicit.txt"
-  content    = "I love random strings of text:🤯 ${random_string.rand_name1.id}"
-  depends_on = [random_string.rand_name1]
+resource "random_integer" "name" {
+  min = 20
+  max = 275
+
+  lifecycle {
+    #prevent_destroy = true
+    #create_before_destroy = true
+    ignore_changes = [ min ]
+  }
 }
 
-resource "random_string" "rand_name1" {
-  length = 20
-}
 
-resource "local_file" "random_res2" {
-  filename = "implicit.txt"
-  content  = "I love random strings of text:🤯 ${random_string.rand_name2.id}"
-}
 
-resource "random_string" "rand_name2" {
-  length = 10
-}
+
+# resource "local_file" "random_res1" {
+#   filename   = "explicit.txt"
+#   content    = "I love random strings of text:🤯 ${random_string.rand_name1.id}"
+#   depends_on = [random_string.rand_name1]
+# }
+
+# resource "random_string" "rand_name1" {
+#   length = 20
+# }
+
+# resource "local_file" "random_res2" {
+#   filename = "implicit.txt"
+#   content  = "I love random strings of text:🤯 ${random_string.rand_name2.id}"
+# }
+
+# resource "random_string" "rand_name2" {
+#   length = 10
+# }
 
 # resource "local_file" "sample_res" {
 #   filename = var.filename
