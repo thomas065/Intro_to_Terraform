@@ -1,19 +1,39 @@
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer
+# https://developer.hashicorp.com/terraform/language/terraform
 
+
+terraform {
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.1.0"
+    }
+  }
+}
+
+provider "random" {
+  # Configuration options
+}
 
 resource "random_integer" "name" {
-  min = 20
-  max = 275
-
-  lifecycle {
-    #prevent_destroy = true
-    #create_before_destroy = true
-    ignore_changes = [ min ]
-  }
+  min = 0
+  max = 1000
 }
 
 
 
+
+
+# resource "random_integer" "name" {
+#   min = 20
+#   max = 275
+
+#   lifecycle {
+#     #prevent_destroy = true
+#     #create_before_destroy = true
+#     ignore_changes = [ min ]
+#   }
+# }
 
 # resource "local_file" "random_res1" {
 #   filename   = "explicit.txt"
