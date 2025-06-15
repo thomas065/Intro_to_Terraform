@@ -1,11 +1,29 @@
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer
 
 
+# resource "local_file" "sample_res" {
+#   filename = var.filename
+#   content = var.content4[2]
+# }
+
 resource "local_file" "sample_res" {
   filename = var.filename
-  content = var.content
+  content = var.content5[0]
 }
 
+output "result_filename" {
+  value = local_file.sample_res.filename
+}
+
+output "result_content" {
+  value = local_file.sample_res.content
+}
+
+
+# resource "local_file" "sample_res" {
+#   filename = var.filename
+#   content = var.content
+# }
 
 # resource random_integer rint {
 #   min = 1
